@@ -91,24 +91,41 @@ export default function ContactSection() {
                 onClick={() => setShowResume(true)}
                 className="inline-block mt-10 px-6 py-2 border border-red-400 bg-red-500 hover:bg-red-600 transition-colors text-white font-semibold rounded-md flex items-center justify-center"
               >
-                📄 Preview My Resume
+                📄 View My Resume
               </button>
             </div>
 
             {showResume && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80">
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4">
                 <div className="bg-white rounded-lg overflow-hidden w-full max-w-4xl h-[90vh] relative">
                   <button
                     onClick={() => setShowResume(false)}
-                    className="absolute top-3 right-4 text-black hover:text-red-500 text-xl"
+                    className="absolute top-1 right-1 text-black hover:text-red-500 text-xl"
                   >
                     ✖
                   </button>
-                  <iframe
-                    src="/Harsh_Chandak_Resume.pdf"
-                    className="w-full h-full"
-                    frameBorder="0"
-                  ></iframe>
+
+                  <div className="w-full h-full">
+                    <iframe
+                      src="/Harsh_Chandak_Resume.pdf"
+                      className="w-full h-full hidden sm:block"
+                      frameBorder="0"
+                    ></iframe>
+
+                    {/* Mobile fallback */}
+                    <div className="sm:hidden flex flex-col justify-center items-center h-full p-4 text-center">
+                      <p className="text-gray-800 mb-4">
+                        PDF preview isn't supported on some mobile devices.
+                      </p>
+                      <a
+                        href="/Harsh_Chandak_Resume.pdf"
+                        download
+                        className="px-6 py-2 bg-red-500 text-white rounded-md font-semibold hover:bg-red-600"
+                      >
+                        📄 Download Resume
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}

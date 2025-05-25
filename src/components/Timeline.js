@@ -98,17 +98,27 @@ export default function Timeline() {
         </span>
       </h2>
 
-      <div className="relative flex flex-col gap-16 before:content-[''] before:absolute before:left-1/4 before:top-0 before:bottom-0 before:w-[2px] before:bg-gray-700">
+      <div className="relative flex flex-col gap-16 before:content-[''] before:absolute before:top-0 before:bottom-0 before:w-[2px] before:bg-gray-700 before:left-[calc(0%)] md:before:left-1/4">
         {combined.map((item, index) => (
           <motion.div
             key={index}
-            className="relative w-full md:w-full pl-[calc(30%)] text-left"
+            className="relative w-full pl-6 md:pl-[calc(30%)] text-left"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.2 }}
           >
-            <div className="absolute top-1 left-[calc(25%+2px)] w-0 h-0 border-t-8 border-b-8 border-l-[12px] border-l-white border-transparent"></div>
+            <div
+              className="
+                absolute top-2 
+                left-0.5
+                md:left-[calc(25%+2px)] 
+                w-0 h-0 
+                border-t-8 border-b-8 border-l-[12px] 
+                border-l-white border-transparent
+              "
+            ></div>
+
             {item.type === "education" ? (
               <>
                 <h4 className="text-lg font-semibold text-red-400">{item.title}</h4>
@@ -120,12 +130,15 @@ export default function Timeline() {
                     <div className="space-y-2">
                       {item.projects.map((proj, i) => (
                         <div key={i} className="flex items-start gap-2">
-                          <div style={{ display: 'flex', flexDirection: 'row' }}>
-                            <p className="text-sm text-gray-300 leading-snug" style={{ marginRight: '10px' }}>{proj.name || proj}</p>
+                          <div className="space-y-1">
+                            <p className="text-sm text-gray-300 leading-snug">{proj.name || proj}</p>
                             {proj.tech && (
-                              <div className="flex flex-wrap gap-1">
+                              <div className="flex flex-wrap gap-2">
                                 {proj.tech.map((tech, j) => (
-                                  <span key={j} className="bg-gray-700 text-gray-300 px-0.5 py-0.2 text-xs rounded">
+                                  <span
+                                    key={j}
+                                    className="bg-gray-700 text-gray-300 px-2 py-1 text-xs rounded whitespace-nowrap"
+                                  >
                                     {tech}
                                   </span>
                                 ))}
