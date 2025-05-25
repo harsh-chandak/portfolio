@@ -47,7 +47,7 @@ pragmatic, creative, and just a little over-caffeinated ☕
 
 ## 🚧 Local Setup
 
-Wanna poke around? Be my guest.
+Wanna poke around? Be my guest. (Though I'd say DIY, cuz it's fun)
 
 ```bash
 git clone https://github.com/harsh-chandak/portfolio.git
