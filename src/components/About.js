@@ -1,4 +1,4 @@
-import { FaHtml5, FaJsSquare, FaSass, FaReact, FaCss3Alt, FaNodeJs, FaGitAlt, FaCloud  } from "react-icons/fa";
+import { FaHtml5, FaJsSquare, FaSass, FaReact, FaCss3Alt, FaNodeJs, FaGitAlt, FaCloud } from "react-icons/fa";
 import { SiNextdotjs, SiExpress, SiMongodb, SiMysql } from "react-icons/si";
 
 const skills = [
@@ -28,10 +28,13 @@ export default function About() {
       <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
         <div className="text-gray-300 text-lg max-w-2xl text-justify">
           <p className="mb-6">
-            I don’t just build web apps, I build momentum. From architecting full-stack platforms with React, Node, and TypeScript to steering product direction and client success strategy, I live where clean code meets real-world outcomes. I’ve written backend pipelines, mapped go-to-marketing plans, aligned cross-functional teams, and somehow still refactored a function at midnight.
+            I build things that don’t blink when the traffic spikes, and I write code that makes sense six months later, to others and to myself. From full-stack platforms to backend pipelines, I care less about trendy stacks and more about solving the right problem, cleanly.
+          </p>
+          <p className="mb-6">
+            I’ve been the dev who architects, the PM who asks better questions, and the fixer who walks in mid-crisis and walks out with shipping dates. My sweet spot? Turning chaos into shipped product.
           </p>
           <p>
-            Think of me as your in-house developer meets product thinker meets business translator, someone who can design scalable systems and ask the right questions in a boardroom. I thrive on the thrill of turning chaos into clarity, whether that’s debugging data flows or decoding user needs. If it’s smart, meaningful, and a little ambitious, I’m already in.
+          If there’s ambiguity, I reduce it. If there’s friction, I find the logic. That’s where I do my best work.
           </p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-6 justify-items-center">

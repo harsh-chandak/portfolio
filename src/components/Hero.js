@@ -1,3 +1,4 @@
+'use client';
 import { motion } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useState, useEffect } from "react";
@@ -17,51 +18,44 @@ export default function Hero() {
         console.log(container);
     };
 
+
+
     return (
-        <section className="relative py-40 text-center overflow-hidden flex items-center justify-center min-h-screen">
-            <Particles
-                id="tsparticles"
-                particlesLoaded={particlesLoaded}
-                options={{
-                    background: {
-                        color: "transparent",
-                    },
-                    fpsLimit: 120,
-                    particles: {
-                        color: {
-                            value: "#ffffff",
-                        },
-                        move: {
-                            direction: "none",
-                            enable: true,
-                            outModes: {
-                                default: "bounce",
+        <section className="relative min-h-screen flex items-center justify-center bg-[#101319]  text-white overflow-hidden relative py-40 text-center overflow-hidden flex items-center justify-center min-h-screen">
+            {/* 🎇 Particles Background */}
+            <div className="absolute inset-0 z-0">
+                <Particles
+                    id="heroParticles"
+                    options={{
+                        fpsLimit: 800,
+                        particles: {
+                            number: { value: 200 },
+                            size: { value: 2 },
+                            color: { value: "#ffffff" },
+                            opacity: {
+                                value: 0.2
                             },
-                            random: false,
-                            speed: 1,
-                            straight: false,
-                        },
-                        number: {
-                            density: {
+                            links: {
                                 enable: true,
-                                area: 1200,
+                                distance: 50,
+                                color: "#ffffff",
+                                opacity: 0.1,
+                                width: 1,
                             },
-                            value: 500,
+                            move: {
+                                enable: true,
+                                speed: 0.5,
+                                outModes: { default: "bounce" },
+                            },
                         },
-                        opacity: {
-                            value: 0.5,
-                        },
-                        shape: {
-                            type: "circle",
-                        },
-                        size: {
-                            value: { min: 0.2, max: 2 },
-                        },
-                        preset: "triangles",
-                    },
-                    detectRetina: true,
-                }}
-            />
+                        detectRetina: true,
+                        background: { color: "transparent" },
+                        fullScreen: { enable: false },
+                    }}
+            
+                />
+            </div>
+
             <motion.div
                 className="[z-index:1000]"
                 initial={{ opacity: 0, y: 20 }}
