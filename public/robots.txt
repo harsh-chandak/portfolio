@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://porfolio-ashy-chi.vercel.app/sitemap.xml

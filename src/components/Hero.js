@@ -23,7 +23,7 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen flex items-center justify-center bg-[#101319]  text-white overflow-hidden relative py-40 text-center overflow-hidden flex items-center justify-center min-h-screen">
             {/* 🎇 Particles Background */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 hidden sm:block">
                 <Particles
                     id="heroParticles"
                     options={{
