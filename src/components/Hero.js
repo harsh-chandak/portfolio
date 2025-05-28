@@ -65,7 +65,7 @@ export default function Hero() {
                 <h1 className="text-6xl font-bold mb-4">
                     Hello, I'm <span className="text-red-400">Harsh</span>
                 </h1>
-                <p className="text-gray-400 italic text-lg mb-4">
+                <p className="text-gray-400 italic text-md mb-4">
                     (My name means “Happiness” in Hindi. Ironic for a bug-squashing dev, I know 😄)
                 </p>
                 <p className="text-4xl text-gray-300 mb-4">

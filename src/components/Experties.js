@@ -26,7 +26,7 @@ const expertise = [
       💸 Integrated payments (Razorpay/Stripe) with grace, retries, refunds, and regrets included.
       📦 Backend: custom schemas per vertical. Frontend: fast enough to feel native.
       📈 Dashboards that helped sellers sell, not confuse them.
-      🤹‍♂️ Juggled orders, stock, delivery, roles, and edge cases without dropping the vibe.
+      🤹 Juggled orders, stock, delivery, roles, and edge cases without dropping the vibe.
       `,
       tech: [
         "React.js", "Express.js", "Node.js", "MongoDB", "MySQL",
