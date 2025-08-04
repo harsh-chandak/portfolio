@@ -19,12 +19,26 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex gap-8 text-lg">
-            <a href="#" className="hover:text-red-400">Home</a>
-            <a href="#about" className="hover:text-red-400">About</a>
-            <a href="#timeline" className="hover:text-red-400">My Journey</a>
-            <a href="#expertise" className="hover:text-red-400">Expertise</a>
-            <a href="#contact" className="hover:text-red-400">Contact</a>
+            <a href="#" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
+              Home
+            </a>
+            <a href="#about" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
+              About
+            </a>
+            <a href="#timeline" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
+              My Journey
+            </a>
+            <a href="#projects" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
+              Projects
+            </a>
+            <a href="#expertise" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
+              Expertise
+            </a>
+            <a href="#contact" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
+              Contact
+            </a>
           </div>
+
 
           {/* Mobile Menu Icon */}
           <div className="md:hidden flex items-center">

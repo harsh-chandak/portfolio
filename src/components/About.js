@@ -1,19 +1,30 @@
-import { FaHtml5, FaJsSquare, FaSass, FaReact, FaCss3Alt, FaNodeJs, FaGitAlt, FaCloud } from "react-icons/fa";
-import { SiNextdotjs, SiExpress, SiMongodb, SiMysql } from "react-icons/si";
+'use client';
+import {
+  FaHtml5, FaJsSquare, FaReact, FaCss3Alt, FaNodeJs, FaGitAlt,
+  FaDocker, FaPython, FaAws
+} from "react-icons/fa";
+import {
+  SiNextdotjs, SiExpress, SiMongodb, SiMysql, SiPostgresql,
+  SiRedis, SiTypescript
+} from "react-icons/si";
 
 const skills = [
+  { icon: <FaJsSquare />, name: "JavaScript", color: "text-yellow-400" },
+  { icon: <SiTypescript />, name: "TypeScript", color: "text-blue-400" },
+  { icon: <FaNodeJs />, name: "Node.js", color: "text-green-600" },
+  { icon: <FaReact />, name: "React", color: "text-blue-400" },
+  { icon: <SiNextdotjs />, name: "Next.js", color: "text-white" },
+  { icon: <SiExpress />, name: "Express.js", color: "text-gray-400" },
+  { icon: <SiPostgresql />, name: "PostgreSQL", color: "text-blue-300" },
+  { icon: <SiMongodb />, name: "MongoDB", color: "text-green-500" },
+  { icon: <SiMysql />, name: "MySQL", color: "text-cyan-300" },
+  { icon: <FaPython />, name: "Python", color: "text-yellow-300" },
   { icon: <FaHtml5 />, name: "HTML", color: "text-orange-500" },
-  { icon: <FaJsSquare />, name: "JAVASCRIPT", color: "text-yellow-400" },
-  { icon: <FaSass />, name: "SASS", color: "text-pink-400" },
-  { icon: <FaReact />, name: "REACT", color: "text-blue-400" },
   { icon: <FaCss3Alt />, name: "CSS", color: "text-blue-600" },
-  { icon: <SiMongodb />, name: "MONGODB", color: "text-green-500" },
-  { icon: <SiNextdotjs />, name: "NEXT.JS", color: "text-white" },
-  { icon: <SiExpress />, name: "EXPRESS.JS", color: "text-gray-400" },
-  { icon: <FaNodeJs />, name: "NODE.JS", color: "text-green-600" },
-  { icon: <FaGitAlt />, name: "GIT", color: "text-red-600" },
-  { icon: <SiMysql />, name: "MYSQL", color: "text-cyan-800" },
-  { icon: <FaCloud />, name: "SaaS", color: "text-cyan-300" },
+  { icon: <SiRedis />, name: "Redis", color: "text-red-500" },
+  { icon: <FaGitAlt />, name: "Git", color: "text-red-600" },
+  { icon: <FaDocker />, name: "Docker", color: "text-blue-400" },
+  { icon: <FaAws />, name: "AWS", color: "text-cyan-500" },
 ];
 
 export default function About() {
@@ -28,13 +39,20 @@ export default function About() {
       <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
         <div className="text-gray-300 text-lg max-w-2xl text-justify">
           <p className="mb-6">
-            I build systems that don’t blink when traffic spikes, and write code that still makes sense six months later. Whether it’s a multi-tenant backend, a performance-critical API, or a full-stack web app, I ship products that scale, stay clean, and solve real business problems.
+            An experienced Backend / Full-stack dev. I've engineered backends for 20+ Projects and SaaS systems (ERP, CRM, LMS, e-commerce). Optimized backends for horizontal scalability, multi-tenancy; isolating clients and supporting growth
           </p>
+
           <p className="mb-6">
-            I’ve been the dev who architects, the PM who asks better questions, and the fixer who walks in mid-crisis and walks out with shipping dates. My sweet spot? Turning chaos into shipped product.
+            Whether I’m building APIs, cleaning legacy SQL, or containerizing microservices, I focus on clarity, performance, and purpose. I’ve been the dev who architects clean logic, the fixer who walks into messy systems, and the teammate who turns ambiguity into roadmap tickets.
           </p>
+
+          <p className="mb-6">
+            <strong>My daily set-up:</strong> Coffee, Postman, Jira, VS Code, multiple browser tabs & notes<br/> 
+            <strong>What am I upto?:</strong> REST APIs, Web Dev, Data Viz & thinking of optimization
+          </p>
+
           <p>
-            If there’s ambiguity, I reduce it. If there’s friction, I debug it. If there’s a better way to solve it, I’m probably already building it.
+            I enjoy tackling tough problems, structuring messy docs, and building systems that are more than just code. If it’s chaotic, I ship it. If it’s boring, I automate it. If it scales, I’m already testing it.
           </p>
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-6 justify-items-center">

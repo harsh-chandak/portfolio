@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'mysql-blue': '#00758F',
+        'mysql-blue': '#028eadff',
         'mysql-orange': '#F29111',
       },
     },

@@ -10,11 +10,7 @@ const expertise = [
       🛠️ Production planning? Gantt-inspired timelines that respected both dev cycles and machine breakdowns.
       🧠 Assumed failure as the default, built like it.
       ✅ If you gave me your ops chaos today, I’d model it by Monday and stress test it by Friday.
-      `,
-      tech: [
-        "Laravel", "MySQL", "Node.js", "Angular.js", "Chart.js",
-        "PHP", "SQL", "REST APIs", "System Design"
-      ],
+      `
   },
   {
     title: "E-Commerce Platforms",
@@ -26,12 +22,7 @@ const expertise = [
       💸 Integrated payments (Razorpay/Stripe) with grace, retries, refunds, and regrets included.
       📦 Backend: custom schemas per vertical. Frontend: fast enough to feel native.
       📈 Dashboards that helped sellers sell, not confuse them.
-      🤹 Juggled orders, stock, delivery, roles, and edge cases without dropping the vibe.
-      `,
-      tech: [
-        "React.js", "Express.js", "Node.js", "MongoDB", "MySQL",
-        "Payment APIs", "REST APIs", "SaaS", "CI/CD"
-      ],
+      🤹 Juggled orders, stock, delivery, roles, and edge cases without dropping the vibe.`
   },
   {
     title: "Real-Time Apps",
@@ -44,11 +35,7 @@ const expertise = [
       ⛑️ Built for poor networks. Always. Because people use phones, not fiber.
       🧘 UI that reacts fast but never freaks out. Real-time should feel smooth, not sweaty.
       🧪 Debugged packet drops with browser tabs and sheer will.
-      `,
-      tech: [
-        "Socket.io", "Firebase", "Node.js", "REST APIs",
-        "Debugging", "Performance Optimization", "System Design"
-      ],
+      `
   },
   {
     title: "Learning & Training Systems",
@@ -61,11 +48,7 @@ const expertise = [
       🕵️ Real-time session tracking without WebSocket meltdowns.
       📦 Modular content pipelines, one backend to teach them all.
       🤔 Asked myself: “Would a teacher actually use this?”, and designed from that answer.
-      `,
-      tech: [
-        "Node.js", "Socket.io", "Firebase", "Figma APIs",
-        "React.js"
-      ],
+      `
   },
 ];
 
@@ -107,11 +90,7 @@ export default function Expertise() {
                   </div>
                 );
               })}
-            <div className="flex flex-wrap gap-2 text-sm text-gray-300">
-              {item.tech.map((tech, i) => (
-                <span key={i} className="bg-gray-700 px-2 py-1 rounded">{tech}</span>
-              ))}
-            </div>
+            
           </div>
         ))}
       </div>

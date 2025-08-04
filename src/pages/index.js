@@ -5,6 +5,7 @@ import Timeline from "../components/Timeline";
 import Experties from "../components/Experties";
 import Contact from  "../components/Contact";
 import Footer from "../components/Footer";
+import Projects from "../components/Projects";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         
         <About />
         <Timeline />
+        <Projects />
         <Experties />
         <Contact />
       </main>
