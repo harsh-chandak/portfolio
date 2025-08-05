@@ -1,65 +1,56 @@
-// Sample responsive Tailwind-based Navbar with mobile menu toggle
+'use client';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // You can replace with Heroicons or another icon lib
+import { ChevronDown, ChevronRight, Folder, File } from 'lucide-react';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState({
+    src: true,
+    components: true,
+  });
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggle = (folder) => {
+    setIsOpen((prev) => ({ ...prev, [folder]: !prev[folder] }));
+  };
 
   return (
-    <nav className="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href="/#" className="flex items-center gap-2">
-            <img src="/favicon.ico" alt="Logo" className="w-6 h-6" />
-            <span className="text-lg font-semibold text-white hidden sm:inline">Harsh's Devfolio</span>
-          </a>
-
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8 text-lg">
-            <a href="#" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
-              Home
-            </a>
-            <a href="#about" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
-              About
-            </a>
-            <a href="#timeline" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
-              My Journey
-            </a>
-            <a href="#projects" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
-              Projects
-            </a>
-            <a href="#expertise" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
-              Expertise
-            </a>
-            <a href="#contact" className="hover:text-red-400 hover:border-b-2 hover:border-red-400 transition-all duration-300">
-              Contact
-            </a>
-          </div>
-
-
-          {/* Mobile Menu Icon */}
-          <div className="md:hidden flex items-center">
-            <button onClick={toggleMenu}>
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
-            </button>
-          </div>
+    <aside className="w-64 bg-[#1e1e1e] text-gray-300 h-screen fixed top-0 left-0 z-50 border-r border-gray-700">
+      <div className="px-4 py-2 font-semibold text-sm text-white border-b border-gray-700">
+        EXPLORER
+      </div>
+      <div className="px-4 py-2">
+        {/* src folder */}
+        <div className="mb-1">
+          <button onClick={() => toggle('src')} className="flex items-center gap-1 w-full text-left">
+            {isOpen.src ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+            <Folder className="text-yellow-400" size={16} />
+            <span className="text-sm font-mono">src</span>
+          </button>
+          {isOpen.src && (
+            <div className="pl-6 mt-1 space-y-1">
+              <div className="flex items-center gap-1 text-sm">
+                <File className="text-blue-300" size={14} />
+                <a href="#hero.js">hero.js</a>
+              </div>
+              <div className="flex items-center gap-1 text-sm">
+                <File className="text-blue-300" size={14} />
+                <a href="#about">about.js</a>
+              </div>
+              <div className="flex items-center gap-1 text-sm">
+                <File className="text-blue-300" size={14} />
+                <a href="#projects">projects.js</a>
+              </div>
+              <div className="flex items-center gap-1 text-sm">
+                <File className="text-blue-300" size={14} />
+                <a href="#expertise">expertise.js</a>
+              </div>
+              <div className="flex items-center gap-1 text-sm">
+                <File className="text-blue-300" size={14} />
+                <a href="#contact">contact.js</a>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-
-      {/* Mobile Menu Items */}
-      {isOpen && (
-        <div className="md:hidden bg-gray-900 px-4 py-4 space-y-2 text-center">
-          <a href="#" className="block hover:text-red-400" onClick={toggleMenu}>Home</a>
-          <a href="#about" className="block hover:text-red-400" onClick={toggleMenu}>About</a>
-          <a href="#timeline" className="block hover:text-red-400" onClick={toggleMenu}>My Journey</a>
-          <a href="#projects" className="block hover:text-red-400" onClick={toggleMenu}>Projects</a>
-          <a href="#expertise" className="block hover:text-red-400" onClick={toggleMenu}>Expertise</a>
-          <a href="#contact" className="block hover:text-red-400" onClick={toggleMenu}>Contact</a>
-        </div>
-      )}
-    </nav>
+    </aside>
   );
 }

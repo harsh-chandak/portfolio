@@ -10,6 +10,10 @@ module.exports = {
         'mysql-blue': '#028eadff',
         'mysql-orange': '#F29111',
       },
+      fontFamily: {
+        code: ["Consolas", "'Courier New'", "monospace", "Fira Code"],
+      },
+
     },
   },
   plugins: [],
