@@ -55,6 +55,7 @@ export default function Navbar() {
           <a href="#" className="block hover:text-red-400" onClick={toggleMenu}>Home</a>
           <a href="#about" className="block hover:text-red-400" onClick={toggleMenu}>About</a>
           <a href="#timeline" className="block hover:text-red-400" onClick={toggleMenu}>My Journey</a>
+          <a href="#projects" className="block hover:text-red-400" onClick={toggleMenu}>Projects</a>
           <a href="#expertise" className="block hover:text-red-400" onClick={toggleMenu}>Expertise</a>
           <a href="#contact" className="block hover:text-red-400" onClick={toggleMenu}>Contact</a>
         </div>

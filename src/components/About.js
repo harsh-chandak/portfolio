@@ -36,24 +36,24 @@ export default function About() {
           <span className="absolute left-0 -bottom-1 h-2 w-full bg-red-500"></span>
         </span>
       </h2>
-      <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
+      <div className="flex flex-col lg:flex-row items-start justify-between hyphens-auto gap-10">
         <div className="text-gray-300 text-lg max-w-2xl text-justify">
           <p className="mb-6">
-            An experienced Backend / Full-stack dev. I've engineered backends for 20+ Projects and SaaS systems (ERP, CRM, LMS, e-commerce). Optimized backends for horizontal scalability, multi-tenancy; isolating clients and supporting growth
-          </p>
+            An experienced backend/full-stack dev who’s engineered 20+ projects and SaaS systems like ERP, CRM, LMS, e-commerce. Skilled in optimizing for scalability and multi-tenancy, isolating clients while supporting growth.          </p>
 
           <p className="mb-6">
-            Whether I’m building APIs, cleaning legacy SQL, or containerizing microservices, I focus on clarity, performance, and purpose. I’ve been the dev who architects clean logic, the fixer who walks into messy systems, and the teammate who turns ambiguity into roadmap tickets.
-          </p>
+            Whether building APIs, cleaning legacy SQL, or containerizing microservices, I focus on clarity, performance, and purpose. I’m the dev who crafts clean logic, the fixer who untangles messy systems, and the teammate who turns ambiguity into action.          </p>
 
-          <p className="mb-6">
-            <strong>My daily set-up:</strong> Coffee, Postman, Jira, VS Code, multiple browser tabs & notes<br/> 
-            <strong>What am I upto?:</strong> REST APIs, Web Dev, Data Viz & thinking of optimization
-          </p>
 
           <p>
             I enjoy tackling tough problems, structuring messy docs, and building systems that are more than just code. If it’s chaotic, I ship it. If it’s boring, I automate it. If it scales, I’m already testing it.
           </p>
+
+          <p className="mb-6 text-lg font-semibold text-gray-200 bg-gray-900 p-4 rounded-lg border-l-4 border-red-500 ">
+            <strong className="text-red-400">My daily set-up:</strong> ☕ Coffee, Postman, Jira, VS Code, multiple browser tabs & notes<br />
+            <strong className="text-red-400 italic underline">What am I upto?:</strong> 🚀 REST APIs, Web Dev, Data Viz & thinking of optimization
+          </p>
+
         </div>
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-6 justify-items-center">
           {skills.map(({ icon, name, color }) => (
