@@ -9,8 +9,8 @@ export default function Resume() {
   }, []);
 
   return (
-    <section id="resume.pdf" className="bg-[#1e1e1e] text-gray-200 font-mono flex min-h-[90vh] px-4">
-      <div className="w-full max-w-5xl h-[85vh] bg-white rounded-md shadow-md relative">
+    <section id="resume.pdf" className="bg-[#1e1e1e] text-gray-200 font-mono flex min-h-[90vh] px-4 flex-1 max-w-5xl ">
+      <div className="w-full max-w-5xl h-[85vh] bg-white rounded-md  relative">
         {!isMobile ? (
           <iframe
             src="/Harsh_Chandak_Resume.pdf"

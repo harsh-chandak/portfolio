@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ChevronDown, ChevronRight, Folder, File } from 'lucide-react';
 import { projects } from './Projects';
 
-export default function Navbar() {
+export default function Navbar({ setShowResume }) {
   const [isOpen, setIsOpen] = useState({
     src: true,
     components: true,

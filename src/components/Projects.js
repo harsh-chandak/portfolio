@@ -204,7 +204,7 @@ export default function Projects({ projectRefs }) {
     return (
         <section
             id="projects"
-            className="bg-[#1e1e1e] text-gray-300 font-mono py-6 px-8 min-w-xl mx-auto"
+            className="bg-[#1e1e1e] text-gray-300 font-mono px-8 flex-1 max-w-5xl "
             style={{ fontVariantLigatures: "none" }} // disable ligatures for code clarity
         >
             {/* Terminal style header */}

@@ -116,9 +116,9 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-[#1e1e1e] text-gray-200 font-mono min-h-screen flex"
+      className="bg-[#1e1e1e] text-gray-200 font-mono flex-1 max-w-5xl"
     >
-      <div className="bg-[#1e1e1e] rounded-lg shadow-lg">
+      <div className="bg-[#1e1e1e] rounded-lg shadow-lg ">
         {devCodeLines.map((line, idx) => {
           if (line.isSkill) {
             const skill = skillMap[line.content.replace(/["',]/g, '')];

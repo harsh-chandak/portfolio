@@ -44,7 +44,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-[#1e1e1e] font-mono text-sm text-gray-300">
+    <section id="contact" className="bg-[#1e1e1e] font-mono text-sm text-gray-300 flex-1 max-w-5xl ">
       {/* VS Code Editor Shell */}
       <div className="border border-[#3c3c3c] rounded-md overflow-hidden shadow-lg">
         {/* File tab */}

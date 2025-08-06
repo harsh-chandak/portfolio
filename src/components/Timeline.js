@@ -96,10 +96,10 @@ export default function TimelineTerminal() {
   return (
     <section
       id="timeline"
-      className="bg-[#1e1e1e] text-gray-200 font-mono min-h-screen flex"
+      className="bg-[#1e1e1e] text-gray-200 font-mono flex"
     >
       <div className="flex-1 max-w-5xl">
-        <div className="border border-[#333] rounded-md shadow-md p-4 overflow-x-auto bg-[#1e1e1e]">
+        <div className=" rounded-md  p-4 overflow-x-auto bg-[#1e1e1e]">
           <div className="text-green-400 mb-4 text-sm">
             <span className="text-white">&gt; </span>git log --oneline 
             <span className="animate-pulse text-white"> ▍</span>
