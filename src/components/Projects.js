@@ -1,20 +1,26 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 // projects.js (or define at top of Projects.jsx)
 export const projects = [
     {
+        name: "job-alerts.json",
         title: "Web-scraping Tool for Job Alerts + Application Tracker",
         context: "A personal project born from job hunt frustration.",
         period: "Summer 2025",
-        stack: ["Next.js", "MongoDB", "Node.js", "Puppeteer", "Discord Webhook", "JWT Auth", "Tailwind CSS"],
+        stack: ["Next.js", "MongoDB", "Puppeteer", "Discord Webhook", "JWT Auth", "Tailwind CSS"],
         summary:
             "Built a full-stack platform automating job alerts via Discord and tracking applications with filters and follow-ups.",
         highlights: [
             "Created Puppeteer scraper for API/static pages with JSON mapping and cron alerts.",
             "Designed app tracker with status workflows, filters, and Discord notifications.",
             "Implemented multi-tenant JWT auth, user-specific MongoDB, and secured API endpoints."
-        ]
+        ],
+        github: "https://github.com/yourhandle/job-alert-tracker",
+        demo: null,
+        report: null,
+        screenshot: null
     },
     {
+        name: "streamflow.json",
         title: "Kafka + Neo4j Streaming Pipeline",
         context: "ASU course project on distributed systems",
         period: "Spring 2025",
@@ -25,9 +31,14 @@ export const projects = [
             "Engineered Kafka-to-Neo4j stream handlers using BFS and PageRank models.",
             "Deployed pipeline on Kubernetes with Docker containers via Minikube.",
             "Optimized throughput by benchmarking and tuning batch processing sizes."
-        ]
+        ],
+        github: null,
+        demo: null,
+        report: null,
+        screenshot: "/images/streamflow-pipeline.gif"
     },
     {
+        name: "asp-clingo.json",
         title: "Warehouse Robot Optimization using Clingo",
         context: "ASU logic programming and automation project",
         period: "Fall 2024",
@@ -38,9 +49,14 @@ export const projects = [
             "Defined frame axioms and rules simulating autonomous robot navigation.",
             "Built Python wrapper to iteratively run Clingo with dynamic horizons.",
             "Benchmarked performance across various warehouse grid layouts."
-        ]
+        ],
+        github: null,
+        demo: null,
+        report: null,
+        screenshot: "/images/clingo-warehouse.gif"
     },
     {
+        name: "spatial-sql.json",
         title: "Spatial Data Analysis using Apache Spark and Scala",
         context: "ASU big data and geospatial analytics course",
         period: "Spring 2025",
@@ -51,9 +67,14 @@ export const projects = [
             "Implemented partitioning and filters to speed up spatial join operations.",
             "Visualized clusters using Spark SQL and Geohash aggregations.",
             "Created custom RDD transformations for advanced analytics workflows."
-        ]
+        ],
+        github: null,
+        demo: null,
+        report: null,
+        screenshot: "/images/spatial-sql.gif"
     },
     {
+        name: "data-vis.json",
         title: "Mapping Accident Trends & Patterns",
         context: "ASU D3.js data storytelling project",
         period: "Spring 2025",
@@ -64,9 +85,14 @@ export const projects = [
             "Processed 185K+ records using Node.js and Turf.js spatial grouping.",
             "Created six D3.js charts including heatmaps, timelines, and cluster views.",
             "Secured 3rd place in class competition for clear and engaging storytelling."
-        ]
+        ],
+        github: null,
+        demo: "/images/accident-visualization.gif",
+        report: null,
+        screenshot: "/images/accident-visualization.gif"
     },
     {
+        name: "blockchain-ai.json",
         title: "Blockchain & AI for Detecting Financial Data Breaches",
         context: "ASU research project exploring AI and blockchain synergy in cybersecurity",
         period: "Fall 2024",
@@ -77,9 +103,14 @@ export const projects = [
             "Analyzed 15+ major breaches and surveyed 30+ papers on fraud detection and smart contracts.",
             "Proposed a dual-layer framework combining anomaly detection with immutable Ethereum logs.",
             "Compiled findings into a 60-page report featuring security models and future insights."
-        ]
+        ],
+        github: null,
+        demo: null,
+        report: null,
+        screenshot: null
     },
     {
+        name: "property-chain.json",
         title: "Property Registration System Using Blockchain",
         context: "Undergraduate academic project focused on secure property ownership management.",
         period: "Spring 2023",
@@ -90,9 +121,14 @@ export const projects = [
             "Built smart contracts in Solidity to manage ownership and transfer records immutably.",
             "Created Flutter front-end for user-friendly interaction with the blockchain backend.",
             "Tested deployment on local Ethereum networks using Ganache and Truffle."
-        ]
+        ],
+        github: "https://github.com/yourhandle/property-chain",
+        demo: null,
+        report: null,
+        screenshot: "/images/property-chain.gif"
     },
     {
+        name: "bubble-scan.json",
         title: "OMR Sheets Evaluation Using Image Processing",
         context: "Undergraduate academic project",
         period: "Spring 2022",
@@ -103,9 +139,14 @@ export const projects = [
             "Used OpenCV to detect filled bubbles and contours with accuracy.",
             "Designed scoring algorithm tuned for noisy scan variability.",
             "Implemented GUI for preview and manual corrections."
-        ]
+        ],
+        github: "https://github.com/yourhandle/omr-scanner",
+        demo: null,
+        report: null,
+        screenshot: "/images/omr-demo.png"
     },
     {
+        name: "patient-watch.json",
         title: "Real-Time Patient Monitoring System",
         context: "Undergraduate IoT project addressing hospital bed shortages and easing healthcare staff load during pandemics.",
         period: "Spring 2022",
@@ -116,9 +157,14 @@ export const projects = [
             "Integrated sensors with microcontroller and wireless modules.",
             "Developed live dashboard for vitals tracking and alerts.",
             "Tested system responses with simulated patient data scenarios."
-        ]
+        ],
+        github: null,
+        demo: null,
+        report: null,
+        screenshot: "/images/patient-watch.jpg"
     },
     {
+        name: "sign-lang.json",
         title: "Real-Time Sign Language Detection Using FFNN",
         context: "Undergraduate capstone project",
         period: "Fall 2021",
@@ -129,97 +175,176 @@ export const projects = [
             "Captured hand landmarks with MediaPipe and engineered gesture features.",
             "Trained FFNN to classify 20+ signs achieving ~98% test accuracy.",
             "Applied hyperparameter tuning and regularization to prevent overfitting."
-        ]
-    },
+        ],
+        github: null,
+        demo: "/images/sign-language-demo.gif",
+        report: null,
+        screenshot: "/images/sign-language-demo.gif"
+    }
 ];
 
-export default function Projects() {
-    return (
-        <section id="projects" className="py-24 px-4 max-w-6xl mx-auto">
-            <h2 className="text-4xl font-extrabold mb-12 text-white text-center tracking-wide">
-                <span className="relative inline-block">
-                    Featured Projects
-                    <span className="absolute left-0 -bottom-1 h-1 w-full bg-red-500 rounded"></span>
-                </span>
-            </h2>
 
-            <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                {projects.map((proj, index) => (
-                    <ProjectCard key={index} project={proj} />
-                ))}
-            </div>
-        </section>
-    );
+
+function syntaxHighlight(json) {
+    return json
+        .replace(/("(\\u[\da-fA-F]{4}|\\[^u]|[^\\"])*?"(?=\s*:))/g, '<span class="text-blue-400">$1</span>') // keys
+        .replace(/(:\s*)"([^"]*)"/g, ': <span class="text-orange-300">"$2"</span>') // string values
+        .replace(/(:\s*)(\d+)/g, ': <span class="text-green-400">$2</span>') // numbers
+        .replace(/([{}\[\]])/g, '<span class="text-gray-400">$1</span>'); // braces
 }
 
-function ProjectCard({ project }) {
-    const [expanded, setExpanded] = useState(false);
+export default function Projects({ projectRefs }) {
+    const [openDesc, setOpenDesc] = useState({});
+
+    // Toggle description collapse state
+    const toggleDesc = (name) => {
+        setOpenDesc((prev) => ({ ...prev, [name]: !prev[name] }));
+    };
 
     return (
-        <div
-            tabIndex={0}
-            className="bg-gray-900 rounded-lg shadow-xl p-6 cursor-pointer hover:shadow-2xl hover:scale-[1.03] transition-transform duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-red-500"
-            onClick={() => setExpanded(!expanded)}
-            onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && setExpanded(!expanded)}
-            aria-expanded={expanded}
-            aria-label={`Project details for ${project.title}`}
+        <section
+            id="projects"
+            className="bg-[#1e1e1e] text-gray-300 font-mono py-6 px-8 min-w-xl mx-auto"
+            style={{ fontVariantLigatures: "none" }} // disable ligatures for code clarity
         >
-            <h3 className="text-2xl font-semibold text-red-400 mb-1">{project.title}</h3>
-            <p className="text-sm text-gray-400 font-mono mb-2">{project.period}</p>
-            <p className="text-sm text-gray-300 italic mb-3 pl-3 border-l-2 border-red-500">
-                {project.context}
-            </p>
-            <p className="text-sm text-gray-400 italic mb-3">{project.summary}</p>
-
-            <div className="flex flex-wrap gap-2 mb-4">
-                {project.stack.map((tech, i) => (
-                    <span
-                        key={i}
-                        className="text-xs font-semibold bg-red-400/30 text-red-100 px-3 py-1 rounded-full uppercase tracking-wide select-none"
-                    >
-                        {tech}
-                    </span>
-                ))}
+            {/* Terminal style header */}
+            <div className="text-sm mb-5 select-text">
+                <span className="text-[#569cd6]">PS</span>{" "}
+                <span className="text-white">C:\Users\Harsh\brain\src\projects&gt; </span>
+                <span className="animate-pulse text-white">▍</span>
             </div>
 
-            <button
-                onClick={(e) => {
-                    e.stopPropagation();
-                    setExpanded(!expanded);
-                }}
-                className="flex items-center text-red-400 hover:text-red-500 focus:text-red-500 focus:outline-none font-semibold"
-                aria-expanded={expanded}
-                aria-controls={`project-details-${project.title.replace(/\s+/g, "-").toLowerCase()}`}
-            >
-                {expanded ? "Hide Details" : "Show Details"}
-                <svg
-                    className={`ml-2 w-5 h-5 transition-transform duration-300 ${expanded ? "rotate-180" : ""
-                        }`}
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
+            {projects.map((proj,index) => (
+                <article
+                    key={proj.name}
+                    id={proj.name.toLowerCase()}
+                    ref={(el) => {
+                        if (projectRefs?.current) {
+                            projectRefs.current[proj.name.toLowerCase()] = el;
+                        }
+                    }}
+                    className="mb-8 border-l-4 border-[#007acc] pl-6"
                 >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-            </button>
+                    {/* Title */}
+                    <h2 className="font-mono text-base text-[#c9c950] mb-1 select-text">
+                        "{proj.title}"
+                    </h2>
 
-            <div
-                id={`project-details-${project.title.replace(/\s+/g, "-").toLowerCase()}`}
-                className={`mt-4 max-h-0 overflow-hidden transition-max-height duration-500 ease-in-out ${expanded ? "max-h-96" : ""
-                    }`}
-                aria-hidden={!expanded}
-            >
-                <ul className="list-disc ml-5 text-sm text-gray-300 space-y-2">
-                    {project.highlights.map((point, i) => (
-                        <li key={i} className="leading-relaxed">
-                            {point}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
+                    {/* Context as green comment */}
+                    <p className="text-[#6a9955] italic text-xs mb-2 select-text cursor-default">
+            // {proj.context}
+                    </p>
+
+                    {/* Period */}
+                    <div className="text-sm mb-1 select-text">
+                        <span className="text-[#569cd6]">const</span>{" "}
+                        <span className="text-[#9cdcfe]">period</span>{" "}
+                        <span className="text-white">=</span>{" "}
+                        <span className="text-[#ce9178]">"{proj.period}"</span>;
+                    </div>
+
+                    {/* Stack */}
+                    <div className="text-sm mb-3 select-text">
+                        <span className="text-[#569cd6]">const</span>{" "}
+                        <span className="text-[#9cdcfe]">stack</span>{" "}
+                        <span className="text-white">=</span>{" "}
+                        <span className="text-white">[</span>{" "}
+                        <span className="text-[#ce9178]">
+                            {proj.stack.map((tech, i) => (
+                                <span key={tech}>
+                                    "{tech}"
+                                    {i < proj.stack.length - 1 ? <span className="text-white">, </span> : ""}
+                                </span>
+                            ))}
+                        </span>{" "}
+                        <span className="text-white">];</span>
+                    </div>
+
+                    {/* Highlights as bullet list */}
+                    <ul className="list-disc list-inside text-gray-300 text-sm mb-3">
+                        {proj.highlights.map((h, i) => (
+                            <li key={i} className="pl-2">
+                                {h}
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Collapsible summary */}
+                    <button
+                        onClick={() => toggleDesc(proj.name)}
+                        className="text-[#569cd6] text-xs mb-3 hover:underline focus:outline-none"
+                        aria-expanded={!!openDesc[proj.name]}
+                        aria-controls={`${proj.name}-desc`}
+                    >
+                        {openDesc[proj.name] ? "Hide Summary ▲" : "Show Summary ▼"}
+                    </button>
+
+                    {openDesc[proj.name] && (
+                        <p
+                            id={`${proj.name}-desc`}
+                            className="bg-[#252526] rounded-md p-3 text-[#d4d4d4] text-sm max-w-3xl select-text whitespace-pre-wrap"
+                        >
+                            {proj.summary}
+                        </p>
+                    )}
+
+                    {/* Links */}
+                    <div className="text-sm mt-2 space-x-4 select-text">
+                        {proj.github ? (
+                            <a
+                                href={proj.github}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#3794ff] hover:underline"
+                            >
+                                [GitHub]
+                            </a>
+                        ) : (
+                            <span className="text-gray-600 cursor-not-allowed">[GitHub Restricted]</span>
+                        )}
+
+                        {proj.demo ? (
+                            <a
+                                href={proj.demo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#3794ff] hover:underline"
+                            >
+                                [Live Demo]
+                            </a>
+                        ) : proj.screenshot ? (
+                            <a
+                                href={proj.screenshot}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#3794ff] hover:underline"
+                            >
+                                [Output Screenshot]
+                            </a>
+                        ) : (
+                            <span className="text-gray-600 cursor-not-allowed">[Demo Unavailable]</span>
+                        )}
+
+                        {proj.report ? (
+                            <a
+                                href={proj.report}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#3794ff] hover:underline"
+                            >
+                                [Report]
+                            </a>
+                        ) : (
+                            <span className="text-gray-600 cursor-not-allowed">[Report On Request]</span>
+                        )}
+                        {/* Only render separator if not the last project */}
+                        {index < projects.length - 1 && (
+                            <hr className="border-t border-gray-700 mb-8 max-w-7xl" />
+                        )}
+                    </div>
+                </article>
+
+            ))}
+        </section>
     );
 }

@@ -12,13 +12,13 @@ export default function VSCodeLayout({ activeFile, children }) {
       {/* Right: Editor-like content */}
       <div className="flex flex-col flex-1 max-h-screen overflow-hidden">
         {/* Top: TopBar + Tabs (fixed height) */}
-        <div className="shrink-0">
+        <div className="shrink-0 pl-64">
           <TopBar activeFile={activeFile} />
           <Tabs activeFile={activeFile} />
         </div>
 
         {/* Scrollable main area */}
-        <main className="flex-1 overflow-y-auto px-4 py-6 space-y-24">
+        <main className="flex-1 overflow-y-auto pace-y-24 pl-64">
           {children}
         </main>
 

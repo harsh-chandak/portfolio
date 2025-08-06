@@ -7,8 +7,8 @@ import {
   SiNextdotjs, SiExpress, SiMongodb, SiMysql, SiPostgresql,
   SiRedis, SiTypescript
 } from "react-icons/si";
-import VSCodeFileView from "./VSCodefileView";
 
+// Skills list (from tech_stack)
 const skills = [
   { icon: <FaJsSquare />, name: "JavaScript", color: "#f7df1e" },
   { icon: <SiTypescript />, name: "TypeScript", color: "#3178c6" },
@@ -28,22 +28,28 @@ const skills = [
   { icon: <FaAws />, name: "AWS", color: "#ff9900" },
 ];
 
-// Map skill name to skill object for quick lookup
 const skillMap = Object.fromEntries(skills.map(s => [s.name, s]));
 
 const devCodeLines = [
   { indent: 0, content: '// About Me' },
   { indent: 0, content: 'const dev = {' },
   { indent: 1, content: 'name: "Harsh N. Chandak",', isNameString: true },
-  { indent: 1, content: 'title: "Full-stack | Backend Dev",' },
-  { indent: 1, content: 'experience: "20+ projects (ERP, LMS, e-com)",' },
+  { indent: 1, content: 'title: "Full-stack | Backend Developer",' },
+  { indent: 1, content: 'education: "MSCS @ASU",' },
   { indent: 1, content: 'philosophy: "Ship if chaotic, automate if boring, scale before needed",' },
+  { indent: 1, content: 'core_skills: [' },
+  { indent: 2, content: '"REST APIs",' },
+  { indent: 2, content: '"Web Dev",' },
+  { indent: 2, content: '"Data Viz",' },
+  { indent: 2, content: '"System Optmization",' },
+  { indent: 2, content: '"System Design"' },
+  { indent: 1, content: '],' },
   { indent: 1, content: 'traits: [' },
   { indent: 2, content: '"system-thinker",' },
   { indent: 2, content: '"api-gardener",' },
   { indent: 2, content: '"legacy-fixer"' },
   { indent: 1, content: '],' },
-  { indent: 1, content: 'setup: [' },
+  { indent: 1, content: 'daily_setup: [' },
   { indent: 2, content: '"☕ Coffee",' },
   { indent: 2, content: '"Postman",' },
   { indent: 2, content: '"Jira",' },
@@ -51,34 +57,30 @@ const devCodeLines = [
   { indent: 2, content: '"browser tabs",' },
   { indent: 2, content: '"notes"' },
   { indent: 1, content: '],' },
-  { indent: 1, content: 'focus: [' },
-  // skills inside focus with isSkill:true to render icon
+  { indent: 1, content: 'tech_stack: [' },
   ...skills.map((skill, i) => ({
     indent: 2,
     content: `"${skill.name}"${i !== skills.length - 1 ? ',' : ''}`,
     isSkill: true,
   })),
-  { indent: 1, content: '],' },
+  { indent: 1, content: ']' },
   { indent: 0, content: '};' },
 ];
 
-// Regex for syntax highlighting tokens
 function syntaxHighlight(line, forceWhiteString = false) {
-  // Check if entire line is a comment (starts with //)
   if (/^\/\/.*/.test(line)) {
     return <span className="text-[#6a9955] italic">{line}</span>;
   }
 
-  // Otherwise do normal token-level highlighting
   const patterns = [
-    { regex: /\b(const|let|var)\b/, cls: 'text-[#569cd6] font-semibold' }, // keywords
-    { regex: /\b(dev|name|title|experience|philosophy|traits|setup|focus)\b/, cls: 'text-[#9cdcfe]' }, // object keys
-    { regex: /"[^"]*"/, cls: forceWhiteString ? 'text-white' : 'text-[#ce9178]' }, // strings
-    { regex: /[\{\}\[\]\(\)]/, cls: 'text-[#d4d4d4] font-bold' }, // brackets
-    { regex: /[:,;=]/, cls: 'text-white' }, // punctuation
+    { regex: /\b(const|let|var)\b/, cls: 'text-[#569cd6] font-semibold' },
+    { regex: /\b(dev|name|title|education|philosophy|traits|daily_setup|tech_stack|core_skills)\b/, cls: 'text-[#9cdcfe]' },
+    { regex: /"[^"]*"/, cls: forceWhiteString ? 'text-white' : 'text-[#ce9178]' },
+    { regex: /[\{\}\(\)]/, cls: 'text-[#ee16c7] font-bold' },
+    { regex: /[\[\]]/, cls: 'text-[#FFFF00] font-bold' },
+    { regex: /[:,;=]/, cls: 'text-white' },
   ];
 
-  // Split line by spaces and punctuation for highlighting
   const tokens = line.split(/(\s+|[:,\[\]\{\}])/).filter(Boolean);
 
   return tokens.map((token, i) => {
@@ -91,16 +93,34 @@ function syntaxHighlight(line, forceWhiteString = false) {
   });
 }
 
+function Line({ number, indent, content, forceWhiteString = false }) {
+  return (
+    <div className="flex select-text">
+      <span
+        className="text-[#858585] w-10 text-right select-none pr-4 "
+        style={{ userSelect: 'none' }}
+      >
+        {number}
+      </span>
+      <pre
+        className="m-0"
+        style={{ paddingLeft: `${indent * 1.5}rem`, color: '#ce9178' }}
+      >
+        {syntaxHighlight(content, forceWhiteString)}
+      </pre>
+    </div>
+  );
+}
+
 export default function About() {
   return (
     <section
       id="about"
-      className="text-gray-100 min-h-[80vh] max-w-5xl mx-auto font-mono overflow-x-auto"
+      className="bg-[#1e1e1e] text-gray-200 font-mono min-h-screen flex"
     >
       <div className="bg-[#1e1e1e] rounded-lg shadow-lg">
         {devCodeLines.map((line, idx) => {
           if (line.isSkill) {
-            // Render skill line with icon and colored string
             const skill = skillMap[line.content.replace(/["',]/g, '')];
             return (
               <div
@@ -109,9 +129,8 @@ export default function About() {
               >
                 <Line
                   number={idx + 1}
-                  indent={line.indent} // Use actual indent here
+                  indent={line.indent}
                   content={line.content}
-                  forceWhiteString={false}
                 />
                 <span style={{ color: skill.color }} className="text-lg ml-2">
                   {skill.icon}
@@ -132,25 +151,5 @@ export default function About() {
         })}
       </div>
     </section>
-  );
-}
-
-function Line({ number, indent, content, forceWhiteString = false }) {
-  return (
-    <div className="flex select-text">
-      <span
-        className="text-[#858585] w-10 text-right select-none pr-4"
-        style={{ userSelect: 'none' }}
-      >
-        {number}
-      </span>
-
-      <pre
-        className="m-0"
-        style={{ paddingLeft: `${indent * 1.5}rem`, color: '#ce9178' }}
-      >
-        {syntaxHighlight(content, forceWhiteString)}
-      </pre>
-    </div>
   );
 }
