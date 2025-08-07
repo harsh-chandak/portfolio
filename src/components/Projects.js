@@ -51,7 +51,7 @@ export const projects = [
             "Benchmarked performance across various warehouse grid layouts."
         ],
         github: null,
-        demo: "https://krr-project.onrender.com/solve?file=inst1",
+        demo: "https://krr-project.onrender.com",
         report: null,
         screenshot: "/images/clingo-warehouse.gif"
     },
