@@ -85,21 +85,20 @@ const combined = [...experience, ...education].map((item, idx) => ({
 
 // Sort newest to oldest based on period end-year
 const parseStartYear = (period) => {
-  const match = period?.match(/(\d{4})/); // gets the first 4-digit year
+  const match = period?.match(/(\\d{4})/); // gets the first 4-digit year
   return match ? parseInt(match[1], 10) : 0;
 };
 
 combined.sort((a, b) => parseStartYear(b.period) - parseStartYear(a.period));
 
-
 export default function TimelineTerminal() {
   return (
     <section
-      id="timeline"
-      className="bg-[#1e1e1e] text-gray-200 font-mono flex"
+      id="timeline.js"
+      className="w-full h-full flex flex-col justify-start overflow-hidden min-h-screen "
     >
-      <div className="flex-1 max-w-5xl">
-        <div className=" rounded-md  p-4 overflow-x-auto bg-[#1e1e1e]">
+      <div className="flex-1 w-full px-4 sm:px-8 overflow-y-auto">
+        <div className="rounded-md p-4 bg-[#1e1e1e] overflow-x-auto">
           <div className="text-green-400 mb-4 text-sm">
             <span className="text-white">&gt; </span>git log --oneline 
             <span className="animate-pulse text-white"> ▍</span>
@@ -114,24 +113,20 @@ export default function TimelineTerminal() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
             >
-              {/* Hash + message + title inline */}
               <div className="text-sm text-[#9cdcfe] mb-1">
                 <span className="text-green-400">{entry.hash}</span>{" "}
                 <span className="text-red-400">{entry.title}</span>
               </div>
 
-              {/* Meta info */}
               <div className="text-xs text-gray-400">
                 Author: Dev Harsh &lt;harsh-chandak&gt;
               </div>
               <div className="text-xs text-gray-500 mb-2">Date: {entry.period}</div>
 
-              {/* Body */}
               <div className="pl-4 text-sm text-gray-300 space-y-2">
                 {entry.type === "exp" && (
                   <div className="italic text-[#6a9955]">{entry.narrative}</div>
                 )}
-
 
                 <ul className="list-none mt-1 space-y-1">
                   {(entry.details || entry.projects || []).map((line, idx) => (

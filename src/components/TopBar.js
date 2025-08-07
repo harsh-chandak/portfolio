@@ -7,7 +7,7 @@ export default function TopBar({ activeFile }) {
         <span className="w-3 h-3 bg-yellow-400 rounded-full" />
         <span className="w-3 h-3 bg-green-500 rounded-full" />
       </div>
-      <span className="truncate">
+      <span className="truncate text-sm sm:text-xs max-[400px]:text-[10px]">
         Harsh’s DevSpace — /brain/src/{activeFile}
       </span>
     </div>

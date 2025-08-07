@@ -8,7 +8,6 @@ import {
   SiRedis, SiTypescript
 } from "react-icons/si";
 
-// Skills list (from tech_stack)
 const skills = [
   { icon: <FaJsSquare />, name: "JavaScript", color: "#f7df1e" },
   { icon: <SiTypescript />, name: "TypeScript", color: "#3178c6" },
@@ -68,7 +67,7 @@ const devCodeLines = [
 ];
 
 function syntaxHighlight(line, forceWhiteString = false) {
-  if (/^\/\/.*/.test(line)) {
+  if (/^\s*\/\/.*/.test(line)) {
     return <span className="text-[#6a9955] italic">{line}</span>;
   }
 
@@ -84,26 +83,46 @@ function syntaxHighlight(line, forceWhiteString = false) {
   const tokens = line.split(/(\s+|[:,\[\]\{\}])/).filter(Boolean);
 
   return tokens.map((token, i) => {
+    // Match skills and add inline icon
+    if (/^"[^"]+"$/.test(token)) {
+      const skillName = token.replace(/["',]/g, '');
+      const skill = skillMap[skillName];
+      if (skill) {
+        return (
+          <span key={i} className="inline-flex items-center space-x-1 mr-2 align-middle">
+            <span className={forceWhiteString ? 'text-white' : 'text-[#ce9178]'}>
+              {token}
+            </span>
+            <span className="text-base" style={{ color: skill.color }}>
+              {skill.icon}
+            </span>
+          </span>
+        );
+
+      }
+    }
+
     for (const { regex, cls } of patterns) {
       if (regex.test(token)) {
         return <span key={i} className={cls}>{token}</span>;
       }
     }
+
     return <span key={i}>{token}</span>;
   });
 }
 
 function Line({ number, indent, content, forceWhiteString = false }) {
   return (
-    <div className="flex select-text">
+    <div className="flex select-text w-full">
       <span
-        className="text-[#858585] w-10 text-right select-none pr-4 "
+        className="text-[#858585] w-10 text-right select-none pr-4"
         style={{ userSelect: 'none' }}
       >
         {number}
       </span>
       <pre
-        className="m-0"
+        className="whitespace-pre-wrap break-words w-full m-0"
         style={{ paddingLeft: `${indent * 1.5}rem`, color: '#ce9178' }}
       >
         {syntaxHighlight(content, forceWhiteString)}
@@ -116,29 +135,10 @@ export default function About() {
   return (
     <section
       id="about"
-      className="bg-[#1e1e1e] text-gray-200 font-mono flex-1 max-w-5xl"
+      className="min-h-screen bg-[#1e1e1e] text-gray-200 font-mono flex-1 max-w-full sm:max-w-5xl px-4 sm:px-8 " 
     >
-      <div className="bg-[#1e1e1e] rounded-lg shadow-lg ">
+      <div className="bg-[#1e1e1e] rounded-lg shadow-lg overflow-x-auto">
         {devCodeLines.map((line, idx) => {
-          if (line.isSkill) {
-            const skill = skillMap[line.content.replace(/["',]/g, '')];
-            return (
-              <div
-                key={idx}
-                className="flex items-center select-text"
-              >
-                <Line
-                  number={idx + 1}
-                  indent={line.indent}
-                  content={line.content}
-                />
-                <span style={{ color: skill.color }} className="text-lg ml-2">
-                  {skill.icon}
-                </span>
-              </div>
-            );
-          }
-
           return (
             <Line
               key={idx}

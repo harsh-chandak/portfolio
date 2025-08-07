@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <section id="hero.js" className="min-h-screen flex items-center bg-[#1e1e1e] text-white font-code">
+    <section id="hero.js" className="min-h-screen flex items-center bg-[#1e1e1e] text-white font-code min-h-screen">
       <motion.div
-        className="max-w-6xl w-full p-10 grid grid-cols-1 md:grid-cols-2 gap-16"
+        className="max-w-full sm:max-w-6xl w-full px-4 sm:px-10 py-10 grid grid-cols-1 md:grid-cols-2 gap-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -25,7 +25,7 @@ export default function Hero() {
               </a>
             </li>
             <li>
-              <a href="#projects.js" className="hover:underline hover:text-blue-200">
+              <a href="#projects" className="hover:underline hover:text-blue-200">
                 <strong>projects.js</strong>
               </a>
             </li>
@@ -40,14 +40,11 @@ export default function Hero() {
               </a>
             </li>
             <li>
-              <a
-                href="#resume.pdf"
-              >
+              <a href="#resume.pdf">
                 <strong>resume.pdf</strong>
               </a>
             </li>
           </ul>
-
         </div>
 
         {/* 🎤 Right column: about + quote */}

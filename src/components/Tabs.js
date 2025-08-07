@@ -5,12 +5,15 @@ export default function Tabs({ activeFile, setShowResume }) {
   const files = [
     { label: 'hero.js', href: '#hero.js' },
     { label: 'about.js', href: '#about' },
-    { label: 'timeline.js', href: '#timeline' },
+    { label: 'timeline.js', href: '#timeline.js' },
     { label: 'projects', href: '#projects' },
     { label: 'experties.js', href: '#expertise' },
     { label: 'contact.js', href: '#contact' },
-    { label: 'resume.pdf', href: '#resume.pdf' }, // this assumes you've created Resume section
+    { label: 'resume.pdf', href: '#resume' },
   ];
+
+  const normalized = (str) =>
+    str.replace('.js', '').replace('.pdf', '').replace('.jsx', '').toLowerCase();
 
   const scrollToSection = (e, href) => {
     e.preventDefault();
@@ -27,20 +30,23 @@ export default function Tabs({ activeFile, setShowResume }) {
   };
 
   return (
-    <div className="flex bg-[#1e1e1e] border-b border-gray-700 text-sm font-code">
-      {files.map(({ label, href }) => (
-        <a
-          key={label}
-          href={href}
-          onClick={(e) => scrollToSection(e, href)}
-          className={`px-4 py-2 border-r border-gray-700 cursor-pointer ${label === activeFile
-            ? 'bg-[#252526] text-white'
-            : 'hover:bg-[#2a2d2e] text-gray-400'
+    <div className="overflow-x-auto border-b border-gray-700 bg-[#1e1e1e] scrollbar-thin">
+      <div className="flex min-w-max">
+        {files.map(({ label, href }) => (
+          <a
+            key={label}
+            href={href}
+            onClick={(e) => scrollToSection(e, href)}
+            className={`px-4 py-2 border-r border-gray-700 whitespace-nowrap cursor-pointer ${
+              normalized(label) === normalized(activeFile)
+                ? 'bg-[#252526] text-white'
+                : 'hover:bg-[#2a2d2e] text-gray-400'
             }`}
-        >
-          {label}
-        </a>
-      ))}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
     </div>
   );
 }

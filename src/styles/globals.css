@@ -31,3 +31,33 @@ body {
 * {
   pointer-events: auto !important;
 }
+
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 10px;
+  }
+
+  .contact-card {
+    font-size: 10px;
+  }
+}
+
+section[id] {
+  scroll-margin-top: 7rem;
+  /* 112px */
+}

@@ -44,7 +44,11 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-[#1e1e1e] font-mono text-sm text-gray-300 flex-1 max-w-5xl ">
+    <section
+      id="contact"
+      className="bg-[#1e1e1e] font-mono text-sm text-gray-300 flex-1 max-w-full sm:max-w-5xl px-4 sm:px-8 min-h-screen py-20 mt-20"
+      style={{ fontVariantLigatures: "none" }}
+    >
       {/* VS Code Editor Shell */}
       <div className="border border-[#3c3c3c] rounded-md overflow-hidden shadow-lg">
         {/* File tab */}
@@ -64,7 +68,7 @@ export default function ContactSection() {
           </div>
 
           {/* Code Content */}
-          <div className="space-y-4">
+          <div className="text-sm sm:text-base leading-snug sm:leading-normal space-y-1 sm:space-y-2">
             {/* Contact Info Card */}
             <div>
               <span className="text-[#569CD6]">const</span>{' '}
@@ -73,33 +77,33 @@ export default function ContactSection() {
               <span className="text-white">{'{'}</span>
             </div>
 
-            <div className="pl-6">
+            <div className="pl-3 sm:pl-6">
               <div>
-                <span className="text-[#DCDCAA]">email</span>
+                <span className="text-[#DCDCAA] text-[11px] sm:text-sm">email</span>
                 <span className="text-white">: </span>
-                <a href="mailto:harshnchandak@gmail.com" className="text-[#CE9178] underline hover:text-[#d69d85]">
+                <a href="mailto:harshnchandak@gmail.com" className="text-[#CE9178] underline hover:text-[#d69d85] text-[10px] sm:text-sm">
                   "harshnchandak@gmail.com"
                 </a>
                 <span className="text-white">,</span>
               </div>
 
               <div>
-                <span className="text-[#DCDCAA]">phone</span>
+                <span className="text-[#DCDCAA] text-[11px] sm:text-sm">phone</span>
                 <span className="text-white">: </span>
-                <a href="tel:+14804064666" className="text-[#CE9178] underline hover:text-[#d69d85]">
+                <a href="tel:+14804064666" className="text-[#CE9178] underline hover:text-[#d69d85] text-[10px] sm:text-sm">
                   "+1 480 406 4666"
                 </a>
                 <span className="text-white">,</span>
               </div>
 
               <div>
-                <span className="text-[#DCDCAA]">linkedin</span>
+                <span className="text-[#DCDCAA] text-[11px] sm:text-sm">linkedin</span>
                 <span className="text-white">: </span>
                 <a
                   href="https://www.linkedin.com/in/hnchandak"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#CE9178] underline hover:text-[#d69d85]"
+                  className="text-[#CE9178] underline hover:text-[#d69d85] text-[10px] sm:text-sm"
                 >
                   "linkedin.com/in/hnchandak"
                 </a>
@@ -175,7 +179,7 @@ export default function ContactSection() {
           <div className="bg-white rounded-lg overflow-hidden w-full max-w-4xl h-[90vh] relative">
             <button
               onClick={() => setShowResume(false)}
-              className="absolute top-1 right-1 text-black hover:text-red-500 text-xl"
+              className="absolute top-1 right-1 text-black hover:text-blue-500 text-xl"
             >
               ✖
             </button>
@@ -192,7 +196,7 @@ export default function ContactSection() {
                 <a
                   href="/Harsh_Chandak_Resume.pdf"
                   download
-                  className="px-6 py-2 bg-red-500 text-white rounded-md font-semibold hover:bg-red-600"
+                  className="px-6 py-2 bg-blue-500 text-white rounded-md font-semibold hover:bg-blue-600"
                 >
                   📄 Download Resume
                 </a>

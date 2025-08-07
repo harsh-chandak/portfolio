@@ -14,8 +14,8 @@ export const projects = [
             "Designed app tracker with status workflows, filters, and Discord notifications.",
             "Implemented multi-tenant JWT auth, user-specific MongoDB, and secured API endpoints."
         ],
-        github: "https://github.com/yourhandle/job-alert-tracker",
-        demo: null,
+        github: null,
+        demo: "https://job-alerts-xg3m.vercel.app/",
         report: null,
         screenshot: null
     },
@@ -35,12 +35,12 @@ export const projects = [
         github: null,
         demo: null,
         report: null,
-        screenshot: "/images/streamflow-pipeline.gif"
+        screenshot: "/images/streamflow-pipeline.png"
     },
     {
         name: "asp-clingo.json",
         title: "Warehouse Robot Optimization using Clingo",
-        context: "ASU logic programming and automation project",
+        context: "ASU Knowledge Representation and Resoning project",
         period: "Fall 2024",
         stack: ["Clingo", "Answer Set Programming", "Python"],
         summary:
@@ -51,7 +51,7 @@ export const projects = [
             "Benchmarked performance across various warehouse grid layouts."
         ],
         github: null,
-        demo: null,
+        demo: "https://krr-project.onrender.com/solve?file=inst1",
         report: null,
         screenshot: "/images/clingo-warehouse.gif"
     },
@@ -71,7 +71,7 @@ export const projects = [
         github: null,
         demo: null,
         report: null,
-        screenshot: "/images/spatial-sql.gif"
+        screenshot: "/images/spatial-sql.png"
     },
     {
         name: "data-vis.json",
@@ -87,9 +87,9 @@ export const projects = [
             "Secured 3rd place in class competition for clear and engaging storytelling."
         ],
         github: null,
-        demo: "/images/accident-visualization.gif",
+        demo: "https://data-vis-0eqs.onrender.com/",
         report: null,
-        screenshot: "/images/accident-visualization.gif"
+        screenshot: null
     },
     {
         name: "blockchain-ai.json",
@@ -122,10 +122,10 @@ export const projects = [
             "Created Flutter front-end for user-friendly interaction with the blockchain backend.",
             "Tested deployment on local Ethereum networks using Ganache and Truffle."
         ],
-        github: "https://github.com/yourhandle/property-chain",
+        github: null,
         demo: null,
-        report: null,
-        screenshot: "/images/property-chain.gif"
+        report: "/prop-chain.pdf",
+        screenshot: null
     },
     {
         name: "bubble-scan.json",
@@ -140,28 +140,10 @@ export const projects = [
             "Designed scoring algorithm tuned for noisy scan variability.",
             "Implemented GUI for preview and manual corrections."
         ],
-        github: "https://github.com/yourhandle/omr-scanner",
-        demo: null,
-        report: null,
-        screenshot: "/images/omr-demo.png"
-    },
-    {
-        name: "patient-watch.json",
-        title: "Real-Time Patient Monitoring System",
-        context: "Undergraduate IoT project addressing hospital bed shortages and easing healthcare staff load during pandemics.",
-        period: "Spring 2022",
-        stack: ["IoT", "Embedded Systems", "Sensors", "Arduino Tech", "C++"],
-        summary:
-            "Designed a real-time vitals monitoring system with anomaly alerts for patient safety.",
-        highlights: [
-            "Integrated sensors with microcontroller and wireless modules.",
-            "Developed live dashboard for vitals tracking and alerts.",
-            "Tested system responses with simulated patient data scenarios."
-        ],
         github: null,
         demo: null,
-        report: null,
-        screenshot: "/images/patient-watch.jpg"
+        report: "/bubble-scan.pdf",
+        screenshot: null
     },
     {
         name: "sign-lang.json",
@@ -177,9 +159,9 @@ export const projects = [
             "Applied hyperparameter tuning and regularization to prevent overfitting."
         ],
         github: null,
-        demo: "/images/sign-language-demo.gif",
-        report: null,
-        screenshot: "/images/sign-language-demo.gif"
+        demo: null,
+        report: "/sign-lang.pdf",
+        screenshot: null
     }
 ];
 
@@ -196,7 +178,6 @@ function syntaxHighlight(json) {
 export default function Projects({ projectRefs }) {
     const [openDesc, setOpenDesc] = useState({});
 
-    // Toggle description collapse state
     const toggleDesc = (name) => {
         setOpenDesc((prev) => ({ ...prev, [name]: !prev[name] }));
     };
@@ -204,8 +185,8 @@ export default function Projects({ projectRefs }) {
     return (
         <section
             id="projects"
-            className="bg-[#1e1e1e] text-gray-300 font-mono px-8 flex-1 max-w-5xl "
-            style={{ fontVariantLigatures: "none" }} // disable ligatures for code clarity
+            className="w-full h-full flex flex-col justify-start overflow-hidden mt-30 min-h-screen "
+            style={{ fontVariantLigatures: "none" }}
         >
             {/* Terminal style header */}
             <div className="text-sm mb-5 select-text">
@@ -214,7 +195,7 @@ export default function Projects({ projectRefs }) {
                 <span className="animate-pulse text-white">▍</span>
             </div>
 
-            {projects.map((proj,index) => (
+            {projects.map((proj, index) => (
                 <article
                     key={proj.name}
                     id={proj.name.toLowerCase()}
@@ -337,13 +318,11 @@ export default function Projects({ projectRefs }) {
                         ) : (
                             <span className="text-gray-600 cursor-not-allowed">[Report On Request]</span>
                         )}
-                        {/* Only render separator if not the last project */}
                         {index < projects.length - 1 && (
                             <hr className="border-t border-gray-700 mb-8 max-w-7xl" />
                         )}
                     </div>
                 </article>
-
             ))}
         </section>
     );

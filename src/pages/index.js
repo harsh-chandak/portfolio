@@ -58,25 +58,25 @@ export default function MainPage() {
 
   return (
     <VSCodeLayout activeFile={activeFile}>
-      <section id="hero.js" ref={sections["hero.js"]}>
+      <section id="hero.js" ref={sections["hero.js"]} className="mt-28">
         <Hero />
       </section>
-      <section id="about.js" ref={sections["about.js"]}>
+      <section id="about.js" ref={sections["about.js"]} className="mt-28">
         <About />
       </section>
-      <section id="timeline.js" ref={sections["timeline.js"]}>
+      <section id="timeline.js" ref={sections["timeline.js"]} className="mt-28">
         <Timeline />
       </section>
-      <section id="projects.js" ref={sections["projects.js"]}>
+      <section id="projects" ref={sections["projects.js"]} className="mt-28">
         <Projects projectRefs={projectRefs} />
       </section>
-      <section id="experties.js" ref={sections["experties.js"]}>
+      <section id="experties.js" ref={sections["experties.js"]} className="mt-28">
         <Experties />
       </section>
-      <section id="contact.js" ref={sections["contact.js"]}>
+      <section id="contact.js" ref={sections["contact.js"]} className="mt-28">
         <Contact />
       </section>
-      <section id="resume.pdf" ref={sections["resume.pdf"]}>
+      <section id="resume.pdf" ref={sections["resume.pdf"]} className="mt-28">
         <Resume />
       </section>
       <Footer />

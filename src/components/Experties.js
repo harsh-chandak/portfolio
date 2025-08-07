@@ -71,7 +71,7 @@ export default function Expertise() {
   return (
     <section
       id="expertise"
-      className="bg-[#1e1e1e] font-mono text-[#d4d4d4] flex-1 max-w-5xl"
+      className="bg-[#1e1e1e] font-mono text-[#d4d4d4] flex-1 max-w-full sm:max-w-5xl px-4 sm:px-8 min-h-screen"
       style={{ fontVariantLigatures: "none" }}
     >
       <div className="text-sm text-green-400 mb-4">
