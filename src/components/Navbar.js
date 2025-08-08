@@ -123,7 +123,7 @@ export default function Navbar({ setShowResume, onLinkClick }) {
                 </div>
               )}
 
-              {['experties.js', 'contact.js'].map((file) => (
+              {['expertise.js', 'contact.js'].map((file) => (
                 <div key={file} className="flex items-center gap-1">
                   {getFileIcon(file)}
                   <a

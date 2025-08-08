@@ -70,7 +70,7 @@ export default function MainPage() {
       <section id="projects" ref={sections["projects.js"]} className="mt-28">
         <Projects projectRefs={projectRefs} />
       </section>
-      <section id="experties.js" ref={sections["experties.js"]} className="mt-28">
+      <section id="expertise.js" ref={sections["expertise.js"]} className="mt-28">
         <Experties />
       </section>
       <section id="contact.js" ref={sections["contact.js"]} className="mt-28">

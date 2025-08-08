@@ -8,13 +8,13 @@ export const projects = [
         period: "Summer 2025",
         stack: ["Next.js", "MongoDB", "Puppeteer", "Discord Webhook", "JWT Auth", "Tailwind CSS"],
         summary:
-            "Built a full-stack platform automating job alerts via Discord and tracking applications with filters and follow-ups.",
+            "Used Puppeteer + cron + MongoDB with JWT-auth to personalize tracking and statuses. Saving hours of weekly job hunt efforts for real-time discovery.",
         highlights: [
             "Created Puppeteer scraper for API/static pages with JSON mapping and cron alerts.",
             "Designed app tracker with status workflows, filters, and Discord notifications.",
             "Implemented multi-tenant JWT auth, user-specific MongoDB, and secured API endpoints."
         ],
-        github: null,
+        github: "https://github.com/harsh-chandak/job-alerts/blob/main/README.md",
         demo: "https://job-alerts-xg3m.vercel.app/",
         report: null,
         screenshot: null
@@ -25,8 +25,7 @@ export const projects = [
         context: "ASU course project on distributed systems",
         period: "Spring 2025",
         stack: ["Kafka", "Neo4j", "Kubernetes", "Docker", "Python", "Spark"],
-        summary:
-            "Developed a real-time graph analytics pipeline processing dynamic user event streams efficiently.",
+        summary: "Built a Kafka → Neo4j stream processor with Dockerized BFS/PageRank analytics. Enabled live user graph insights with real-time updates under load.",
         highlights: [
             "Engineered Kafka-to-Neo4j stream handlers using BFS and PageRank models.",
             "Deployed pipeline on Kubernetes with Docker containers via Minikube.",
@@ -35,7 +34,7 @@ export const projects = [
         github: null,
         demo: null,
         report: null,
-        screenshot: "/images/streamflow-pipeline.png"
+        screenshot: "/images/streamflow-pipeline.gif"
     },
     {
         name: "asp-clingo.json",
@@ -43,8 +42,7 @@ export const projects = [
         context: "ASU Knowledge Representation and Resoning project",
         period: "Fall 2024",
         stack: ["Clingo", "Answer Set Programming", "Python"],
-        summary:
-            "Modeled multi-agent warehouse robot paths with declarative logic and ASP planning.",
+        summary: "Simulated warehouse robot logic using Clingo + Python wrapper. Solved multi-agent delivery plans with optimal horizon search in ASP.",
         highlights: [
             "Defined frame axioms and rules simulating autonomous robot navigation.",
             "Built Python wrapper to iteratively run Clingo with dynamic horizons.",
@@ -53,7 +51,7 @@ export const projects = [
         github: null,
         demo: "https://krr-project.onrender.com",
         report: null,
-        screenshot: "/images/clingo-warehouse.gif"
+        screenshot: null
     },
     {
         name: "spatial-sql.json",
@@ -61,8 +59,7 @@ export const projects = [
         context: "ASU big data and geospatial analytics course",
         period: "Spring 2025",
         stack: ["Apache Spark", "Scala", "Java", "Spatial SQL Queries"],
-        summary:
-            "Analyzed large spatial datasets using distributed Spark pipelines and custom Scala transformations.",
+        summary: "Analyzed large spatial datasets via Spark + Scala + Spatial SQL. Optimized joins, geohash clusters, and RDDs for fast geospatial queries.",
         highlights: [
             "Implemented partitioning and filters to speed up spatial join operations.",
             "Visualized clusters using Spark SQL and Geohash aggregations.",
@@ -80,7 +77,7 @@ export const projects = [
         period: "Spring 2025",
         stack: ["D3.js", "JavaScript", "Node.js", "GeoJSON"],
         summary:
-            "Built interactive visualizations to reveal temporal and spatial accident patterns.",
+            "Mapped 185K+ accident records using D3.js & GeoJSON. Built six interactive charts, placing 3rd in class data storytelling showcase.",
         highlights: [
             "Processed 185K+ records using Node.js and Turf.js spatial grouping.",
             "Created six D3.js charts including heatmaps, timelines, and cluster views.",
@@ -97,8 +94,7 @@ export const projects = [
         context: "ASU research project exploring AI and blockchain synergy in cybersecurity",
         period: "Fall 2024",
         stack: ["Blockchain", "AI", "Smart Contracts", "Machine Learning", "NLP"],
-        summary:
-            "Led a case study on combining AI and blockchain to strengthen financial data breach defenses.",
+        summary: "Studied AI + Blockchain for breach detection in fintech. Proposed verifiable audit trails using anomaly detection + smart contracts.",
         highlights: [
             "Analyzed 15+ major breaches and surveyed 30+ papers on fraud detection and smart contracts.",
             "Proposed a dual-layer framework combining anomaly detection with immutable Ethereum logs.",
@@ -115,8 +111,7 @@ export const projects = [
         context: "Undergraduate academic project focused on secure property ownership management.",
         period: "Spring 2023",
         stack: ["Flutter", "Ethereum", "Ganache", "Truffle Suite", "Solidity"],
-        summary:
-            "Developed a decentralized app to automate and secure property registration using blockchain technology.",
+        summary:"Built a DApp for property ownership using Solidity + Flutter. Tested secure record transfers on Ethereum (Ganache + Truffle).",
         highlights: [
             "Built smart contracts in Solidity to manage ownership and transfer records immutably.",
             "Created Flutter front-end for user-friendly interaction with the blockchain backend.",
@@ -133,8 +128,7 @@ export const projects = [
         context: "Undergraduate academic project",
         period: "Spring 2022",
         stack: ["OpenCV", "Python", "HTML", "CSS"],
-        summary:
-            "Automated scoring of optical mark recognition sheets under varied lighting conditions.",
+        summary: "Automated OMR grading with OpenCV under noisy lighting. Tuned bubble detection + GUI preview for accuracy and flexibility.",
         highlights: [
             "Used OpenCV to detect filled bubbles and contours with accuracy.",
             "Designed scoring algorithm tuned for noisy scan variability.",
@@ -151,8 +145,7 @@ export const projects = [
         context: "Undergraduate capstone project",
         period: "Fall 2021",
         stack: ["Neural Networks", "Python", "MediaPipe", "HTML", "CSS"],
-        summary:
-            "Developed a prototype translating hand gestures into text using feed-forward neural networks.",
+        summary:"Trained a FFNN to classify sign gestures using MediaPipe features. Achieved ~98% accuracy in real-time hand-to-text prototype.",
         highlights: [
             "Captured hand landmarks with MediaPipe and engineered gesture features.",
             "Trained FFNN to classify 20+ signs achieving ~98% test accuracy.",
@@ -242,32 +235,34 @@ export default function Projects({ projectRefs }) {
                     </div>
 
                     {/* Highlights as bullet list */}
-                    <ul className="list-disc list-inside text-gray-300 text-sm mb-3">
-                        {proj.highlights.map((h, i) => (
-                            <li key={i} className="pl-2">
-                                {h}
-                            </li>
-                        ))}
-                    </ul>
-
-                    {/* Collapsible summary */}
                     <button
                         onClick={() => toggleDesc(proj.name)}
-                        className="text-[#569cd6] text-xs mb-3 hover:underline focus:outline-none"
+                        className="text-xs mb-3 px-2 py-1 rounded bg-[#007acc]/20 hover:bg-[#007acc]/40 text-[#9cdcfe] font-semibold tracking-wide transition-colors duration-150"
                         aria-expanded={!!openDesc[proj.name]}
                         aria-controls={`${proj.name}-desc`}
                     >
-                        {openDesc[proj.name] ? "Hide Summary ▲" : "Show Summary ▼"}
+                        {openDesc[proj.name] ? "Hide Details ▲" : "Show Details ▼"}
                     </button>
-
                     {openDesc[proj.name] && (
-                        <p
-                            id={`${proj.name}-desc`}
-                            className="bg-[#252526] rounded-md p-3 text-[#d4d4d4] text-sm max-w-3xl select-text whitespace-pre-wrap"
-                        >
-                            {proj.summary}
-                        </p>
+                        <ul className="list-disc list-inside text-gray-300 text-sm mb-3">
+                            {proj.highlights.map((h, i) => (
+                                <li key={i} className="pl-2">
+                                    {h}
+                                </li>
+                            ))}
+                        </ul>
                     )}
+
+
+                    {/* Collapsible summary */}
+
+
+                    <p
+                        id={`${proj.name}-desc`}
+                        className="bg-[#252526] rounded-md p-3 text-[#d4d4d4] text-sm max-w-3xl select-text whitespace-pre-wrap"
+                    >
+                        {proj.summary}
+                    </p>
 
                     {/* Links */}
                     <div className="text-sm mt-2 space-x-4 select-text">
@@ -281,7 +276,12 @@ export default function Projects({ projectRefs }) {
                                 [GitHub]
                             </a>
                         ) : (
-                            <span className="text-gray-600 cursor-not-allowed">[GitHub Restricted]</span>
+                            <span
+                                className="text-gray-600 cursor-help"
+                                title="GitHub access restricted due to Academic Integrity Policy"
+                            >
+                                [GitHub Restricted]
+                            </span>
                         )}
 
                         {proj.demo ? (

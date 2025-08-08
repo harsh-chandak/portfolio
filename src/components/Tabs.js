@@ -7,7 +7,7 @@ export default function Tabs({ activeFile, setShowResume }) {
     { label: 'about.js', href: '#about' },
     { label: 'timeline.js', href: '#timeline.js' },
     { label: 'projects', href: '#projects' },
-    { label: 'experties.js', href: '#expertise' },
+    { label: 'expertise.js', href: '#expertise' },
     { label: 'contact.js', href: '#contact' },
     { label: 'resume.pdf', href: '#resume' },
   ];
