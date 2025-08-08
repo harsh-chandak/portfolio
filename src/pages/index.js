@@ -18,7 +18,7 @@ export default function MainPage() {
     "about.js": useRef(null),
     "timeline.js": useRef(null),
     "projects.js": useRef(null),
-    "experties.js": useRef(null),
+    "expertise.js": useRef(null),
     "contact.js": useRef(null),
     "resume.pdf": useRef(null)
   };

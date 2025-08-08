@@ -50,17 +50,18 @@ export default function Hero() {
         {/* 🎤 Right column: about + quote */}
         <div>
           <h2 className="text-xl text-gray-200 font-semibold mb-4">Welcome</h2>
-          <p className="text-gray-400 text-[15px] mb-4">
-            Hello! I'm <span className="text-blue-500 font-semibold">Harsh N. Chandak</span>, full-stack dev & system optimizer.
+          <p className="text-gray-400 text-[15px] mb-2">
+            Hello! I'm <span className="text-blue-500 font-semibold">Harsh N. Chandak</span>, a full-stack developer who loves building resilient backends, distributed data pipelines, and automation tools that scale.
           </p>
           <p className="text-gray-400 text-[15px] mb-4">
-            (My name means "Happiness" in Hindi, I know it's ironic...)
+            (My name means "Happiness" in Hindi. Yes, I'm aware of the irony.)
           </p>
           <blockquote className="text-sm italic text-gray-500 border-l-4 border-blue-500 pl-4 mt-4">
             "Good code is like a good joke: if you have to explain it, you messed up."
             <div className="text-right mt-2">– Harsh N. Chandak</div>
           </blockquote>
         </div>
+
       </motion.div>
     </section>
   );

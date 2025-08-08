@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 const fakeHashes = [
@@ -20,7 +21,7 @@ const education = [
     ]
   },
   {
-    title: " Bachelor of Technology @ Pune University",
+    title: "Bachelor of Technology @ Pune University",
     school: "Pune University",
     period: "Jul 2019 – May 2023",
     projects: [
@@ -76,31 +77,31 @@ const experience = [
   }
 ];
 
-// Merge and tag entries
 const combined = [...experience, ...education].map((item, idx) => ({
   ...item,
   type: education.includes(item) ? "edu" : "exp",
   hash: fakeHashes[idx] || Math.random().toString(16).slice(2, 9)
 }));
 
-// Sort newest to oldest based on period end-year
-const parseStartYear = (period) => {
-  const match = period?.match(/(\\d{4})/); // gets the first 4-digit year
+const parseEndYear = (period) => {
+  const match = period?.match(/(\d{4})[^\d]*$/); // gets the last 4-digit year
   return match ? parseInt(match[1], 10) : 0;
 };
 
-combined.sort((a, b) => parseStartYear(b.period) - parseStartYear(a.period));
+combined.sort((a, b) => parseEndYear(b.period) - parseEndYear(a.period));
 
 export default function TimelineTerminal() {
+  const [visibleIndex, setVisibleIndex] = useState(null);
+
   return (
     <section
       id="timeline.js"
-      className="w-full h-full flex flex-col justify-start overflow-hidden min-h-screen "
+      className="w-full h-full flex flex-col justify-start overflow-hidden min-h-screen"
     >
       <div className="flex-1 w-full px-4 sm:px-8 overflow-y-auto">
         <div className="rounded-md p-4 bg-[#1e1e1e] overflow-x-auto">
           <div className="text-green-400 mb-4 text-sm">
-            <span className="text-white">&gt; </span>git log --oneline 
+            <span className="text-white">&gt; </span>git log --oneline
             <span className="animate-pulse text-white"> ▍</span>
           </div>
 
@@ -123,20 +124,37 @@ export default function TimelineTerminal() {
               </div>
               <div className="text-xs text-gray-500 mb-2">Date: {entry.period}</div>
 
-              <div className="pl-4 text-sm text-gray-300 space-y-2">
+              <div className="pl-4 text-sm text-gray-300">
                 {entry.type === "exp" && (
-                  <div className="italic text-[#6a9955]">{entry.narrative}</div>
+                  <div className="italic text-[#6a9955] mb-2">{entry.narrative}</div>
                 )}
 
-                <ul className="list-none mt-1 space-y-1">
-                  {(entry.details || entry.projects || []).map((line, idx) => (
-                    <li key={idx}>
-                      <span className="text-[#d4d4d4]">•</span> {line}
-                    </li>
-                  ))}
-                </ul>
+                {visibleIndex === i ? (
+                  <ul className="list-none space-y-1">
+                    {(entry.details || entry.projects || []).map((line, idx) => (
+                      <li key={idx}>
+                        <span className="text-[#d4d4d4]">•</span>{" "}
+                        {line}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
 
-                {entry.end_creds && (
+                <button
+                  onClick={() => setVisibleIndex(visibleIndex === i ? null : i)}
+                  className="text-sm text-blue-400 mt-2 hover:underline"
+                >
+                  {visibleIndex === i
+                    ? entry.type === 'edu'
+                      ? "Hide University Projects"
+                      : "Hide Details"
+                    : entry.type === 'edu'
+                      ? "Show University Projects"
+                      : "Show Details"}
+                </button>
+
+
+                {entry.end_creds && visibleIndex === i && (
                   <div className="italic text-[#808080] mt-2">{entry.end_creds}</div>
                 )}
               </div>
