@@ -84,8 +84,8 @@ const combined = [...experience, ...education].map((item, idx) => ({
 }));
 
 const parseEndYear = (period) => {
-  const match = period?.match(/(\d{4})[^\d]*$/); // gets the last 4-digit year
-  return match ? parseInt(match[1], 10) : 0;
+  const per = period.split(' ')
+  return per ? parseInt(per[1], 10) : 0;
 };
 
 combined.sort((a, b) => parseEndYear(b.period) - parseEndYear(a.period));

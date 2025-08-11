@@ -16,7 +16,7 @@ export const projects = [
       "Built secure multi-user login with JWT auth and scoped MongoDB collections with multi-tenant support."
     ],
     github: "https://github.com/harsh-chandak/job-alerts/blob/main/README.md",
-    demo: "https://job-alerts-xg3m.vercel.app/",
+    demo: "https://job-alerts-xg3m.vercel.app?demo=true",
     report: null,
     screenshot: null
   },
@@ -43,7 +43,7 @@ export const projects = [
     name: "asp-clingo.json",
     title: "Warehouse Robot Optimization using Clingo",
     context: "ASU Knowledge Representation and Reasoning project",
-    period: "Fall 2024",
+    period: "Spring 2025",
     stack: ["Clingo", "Answer Set Programming", "Python"],
     summary:
       "Simulated warehouse robot logic using Clingo + Python wrapper. Solved multi-agent delivery plans with optimal horizon search in ASP.",
@@ -81,7 +81,7 @@ export const projects = [
     name: "data-vis.json",
     title: "Mapping Accident Trends & Patterns",
     context: "ASU D3.js data storytelling project",
-    period: "Spring 2025",
+    period: "Fall 2024",
     stack: ["D3.js", "JavaScript", "Node.js", "GeoJSON"],
     summary:
       "Mapped 185K+ accident records using D3.js & GeoJSON. Built six interactive charts, placing 3rd in class data storytelling showcase.",
@@ -119,7 +119,7 @@ export const projects = [
     name: "property-chain.json",
     title: "Property Registration System Using Blockchain",
     context: "Undergraduate academic project focused on secure property ownership management.",
-    period: "Spring 2023",
+    period: "Fall 2022",
     stack: ["Flutter", "Ethereum", "Ganache", "Truffle Suite", "Solidity"],
     summary:
       "Built a DApp for property ownership using Solidity + Flutter. Tested secure record transfers on Ethereum (Ganache + Truffle).",
