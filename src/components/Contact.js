@@ -68,7 +68,7 @@ export default function ContactSection() {
           </div>
 
           {/* Code Content */}
-          <div className="text-sm sm:text-base leading-snug sm:leading-normal space-y-1 sm:space-y-2">
+          <div className="font-mono text-sm text-[#d4d4d4] space-y-4">
             {/* Contact Info Card */}
             <div>
               <span className="text-[#569CD6]">const</span>{' '}

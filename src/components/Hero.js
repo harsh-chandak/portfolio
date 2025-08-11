@@ -13,34 +13,34 @@ export default function Hero() {
         {/* 🧩 Left column like VS Code shortcuts */}
         <div>
           <h2 className="text-xl text-gray-200 font-semibold mb-4">Start</h2>
-          <ul className="space-y-3 text-[15px] text-blue-300">
+          <ul className="space-y-3 text-[15px] text-blue-400">
             <li>
-              <a href="#about.js" className="hover:underline hover:text-blue-200">
+              <a href="#about.js" className="hover:underline hover:text-blue-300">
                 <strong>about.js</strong>
               </a>
             </li>
             <li>
-              <a href="#timeline.js" className="hover:underline hover:text-blue-200">
+              <a href="#timeline.js" className="hover:underline hover:text-blue-300">
                 <strong>timeline.js</strong>
               </a>
             </li>
             <li>
-              <a href="#projects" className="hover:underline hover:text-blue-200">
+              <a href="#projects" className="hover:underline hover:text-blue-300">
                 <strong>projects.js</strong>
               </a>
             </li>
             <li>
-              <a href="#expertise" className="hover:underline hover:text-blue-200">
+              <a href="#expertise" className="hover:underline hover:text-blue-300">
                 <strong>expertise.js</strong>
               </a>
             </li>
             <li>
-              <a href="#contact.js" className="hover:underline hover:text-blue-200">
+              <a href="#contact.js" className="hover:underline hover:text-blue-300">
                 <strong>contact.js</strong>
               </a>
             </li>
             <li>
-              <a href="#resume.pdf">
+              <a href="#resume.pdf" className="hover:underline hover:text-blue-300">
                 <strong>resume.pdf</strong>
               </a>
             </li>
@@ -49,14 +49,18 @@ export default function Hero() {
 
         {/* 🎤 Right column: about + quote */}
         <div>
-          <h2 className="text-xl text-gray-200 font-semibold mb-4">Welcome</h2>
+          <h2 className="text-xl text-gray-200 font-semibold mb-8">Welcome</h2>
           <p className="text-gray-400 text-[15px] mb-2">
-            Hello! I'm <span className="text-blue-500 font-semibold">Harsh N. Chandak</span>, a full-stack developer who loves building resilient backends, distributed data pipelines, and automation tools that scale.
+            <p className="text-gray-400 text-[15px] mb-2">
+              I’m <span className="text-blue-500 font-semibold">Harsh N. Chandak</span>,<br/>
+              • MSCS student at ASU, Tempe <br/> • Experienced Full-stack Developer <br/> • Software Development <br/> • Database Management
+            </p>
           </p>
-          <p className="text-gray-400 text-[15px] mb-4">
+
+          <p className="text-gray-400 text-[15px] mb-8 mt-8">
             (My name means "Happiness" in Hindi. Yes, I'm aware of the irony.)
           </p>
-          <blockquote className="text-sm italic text-gray-500 border-l-4 border-blue-500 pl-4 mt-4">
+          <blockquote className="text-sm italic text-gray-500 border-l-4 border-blue-500 pl-4 mt-8">
             "Good code is like a good joke: if you have to explain it, you messed up."
             <div className="text-right mt-2">– Harsh N. Chandak</div>
           </blockquote>

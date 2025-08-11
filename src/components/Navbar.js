@@ -146,7 +146,7 @@ export default function Navbar({ setShowResume, onLinkClick }) {
           <a
             href="#resume.pdf"
             onClick={(e) => handleNavigate(e, 'resume.pdf')}
-            className={assignColor('resume.pdf')}
+            className={`hover:underline ${assignColor('resume.pdf')}`}
           >
             resume.pdf
           </a>
